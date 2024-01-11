@@ -32,3 +32,9 @@ A
 src/index.tsx,5\a\5ab44fe33ca96299f51ad4778a73e425b92bf439
 G
 src/pages/ErrorPage.tsx,c\c\cc504c68b6c601e35a9740139269ad692567fb4c
+L
+src/components/AppHeader.tsx,4\2\42d4b3bbf73258812bd29cf17b164b9ba9ea666b
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0

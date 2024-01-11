@@ -3,7 +3,7 @@ import React from 'react';
 const FavoritesFilmsPage = () => {
     return (
         <div>
-            
+            Страница избранных фильмов
         </div>
     );
 };
