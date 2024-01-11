@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import AppHeader from "./components/AppHeader";
 import FilmPage from "./pages/FilmPage";
 import {useAppSelector} from "./hooks/redux";
+import './style/style.scss'
 
 function App() {
 

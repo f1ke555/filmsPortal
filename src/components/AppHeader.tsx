@@ -21,8 +21,6 @@ const AppHeader = () => {
             <NavLink to='/search'>Поиск</NavLink>
             <NavLink to='/favorites'>Избранное</NavLink>
             <NavLink to='/history'>История поиска</NavLink>
-            <NavLink to='/favorites'>Избранное</NavLink>
-            <NavLink to='/history'>История поиска</NavLink>
             {currentUser
                 ?
                 <>
