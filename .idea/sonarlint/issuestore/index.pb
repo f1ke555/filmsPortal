@@ -54,3 +54,11 @@ B
 src/hooks/redux.ts,0\4\042c2e776a541cb84bc7b6411c6a1ab42525eb02
 O
 src/store/reducers/FilmSlice.ts,5\9\593422ed5d986a588998b89bfd4d2802d8c63974
+O
+src/store/reducers/UserSlice.ts,a\b\ab6758e397c256cd75271a24a53008d2400e1176
+C
+src/models/IUser.ts,e\7\e7a172e5da0ad95002c9496a29cc54f4c942fa98
+<
+src/const.ts,b\e\be4164ac6ba4c29e784c8ece780d1e2c2cef4cd2
+?
+src/custom.d.ts,4\7\4765e0a31eea1eead84e1b0fa95dbd2426c9ec4b
