@@ -22,3 +22,26 @@ export const fetchFilms = createAsyncThunk(
         }
     }
 );
+
+export const fetchFilmById = createAsyncThunk(
+    'films/fetchid',
+    async (id: number, thunkAPI) => { // Передаем 'id' в качестве параметра
+        try {
+            const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
+                method: 'GET',
+                headers: {
+                    'X-API-KEY': `${apiKey2}`,
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            if (response.ok) {
+                const movieData = await response.json();
+                return movieData
+            }
+
+        } catch (e) {
+            return thunkAPI.rejectWithValue('Не удалось загрузить фильмы');
+        }
+    }
+)
