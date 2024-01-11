@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "allowUnusedLabels": false,
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "noEmitHelpers": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "es5",
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "strict": true,
+    "jsx": "react-jsxdev",
+    "lib": [
+      "dom",
+      "es2021"
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "*": [
+        "*"
+      ]
+    },
+    "types": [
+      "@types/jest",
+      "@types/node"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
