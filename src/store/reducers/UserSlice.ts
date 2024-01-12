@@ -22,7 +22,7 @@ const userSlice = createSlice({
     reducers: {
         addNewUser: (state, action: PayloadAction<IUser>) => {
             if (localStorage.getItem(action.payload.email)) {
-                console.log('Пользователь с таким email уже существует');
+                alert('Пользователь с таким email уже существует')
             } else {
                 localStorage.setItem(action.payload.email, JSON.stringify(action.payload));
                 state.users.push(action.payload);
@@ -38,10 +38,10 @@ const userSlice = createSlice({
                     localStorage.setItem('currentUser', storedUserJSON);
                     state.currentUser = storedUser;
                 } else {
-                    state.errorPassword = true
+                    alert('Вы ввели неверный пароль')
                 }
             } else {
-                state.errorEmail = true
+                alert('Вы ввели несуществующий email')
             }
         },
         logOut: (state) => {

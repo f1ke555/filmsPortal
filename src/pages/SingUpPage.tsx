@@ -3,7 +3,7 @@ import {Form, Formik, Field, ErrorMessage} from "formik";
 import * as Yup from 'yup'
 import {useNavigate} from "react-router-dom";
 import {initialFormikValues, Values} from "../const";
-import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {useAppDispatch} from "../hooks/redux";
 import {addNewUser} from "../store/reducers/UserSlice";
 
 
@@ -11,7 +11,7 @@ import {addNewUser} from "../store/reducers/UserSlice";
 const SingUpPage = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
-    const {users} = useAppSelector(state => state.userReducer)
+
 
 
     const handleSubmit = (values: Values) => {
