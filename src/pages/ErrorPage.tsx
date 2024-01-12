@@ -3,7 +3,7 @@ import React from 'react';
 const ErrorPage = () => {
     return (
         <div>
-            Страница Ошибки
+            Страница c Ошибкой
         </div>
     );
 };
