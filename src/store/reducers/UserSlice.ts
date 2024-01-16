@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IUser} from "../../models/IUser";
 import {IFilm} from "../../models/IFilm";
+import {IFilters} from "../../models/IFilters";
 
 interface UserState {
     users: IUser[];
@@ -63,6 +64,13 @@ const userSlice = createSlice({
             }
             localStorage.setItem(currentUser.email, JSON.stringify(currentUser))
             localStorage.setItem('currentUser', JSON.stringify(currentUser))
+        },
+        addHistorySearch: (state, action: PayloadAction<IFilters>) => {
+            // @ts-ignore
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+            currentUser.historySearch.push(action.payload)
+            localStorage.setItem(currentUser.email, JSON.stringify(currentUser))
+            localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }
     },
 });
@@ -75,5 +83,6 @@ export const { addNewUser,
     logOut,
     checkCurrentUser,
     addFavoriteFilm,
+    addHistorySearch,
     } = actions;
 export default userSlice.reducer;

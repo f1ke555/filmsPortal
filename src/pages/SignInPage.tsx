@@ -12,7 +12,6 @@ const SignInPage = () => {
     const dispatch = useAppDispatch()
     const [showPassword, setShowPassword] = useState(false)
     const {errorPassword, errorEmail, currentUser} = useAppSelector(state => state.userReducer)
-    const navigate = useNavigate()
     const handleSubmit = (values: Values): void => {
         dispatch(logInUser(values))
     }
@@ -40,7 +39,7 @@ const SignInPage = () => {
                                  width={25} height={25} onClick={() => setShowPassword(!showPassword)}
                                  src={showPassword ? show : hide}/>
                         </div>
-                        {errorEmail && <h5>Вы ввели неверный пароль</h5>}
+                        {errorPassword && <h5>Вы ввели неверный пароль</h5>}
                         <button type="submit">Авторизоваться</button>
                     </Form>
                 </Formik>

@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {fetchFilmById} from "../store/reducers/ActionCreators";
 import Spinner from "../components/Spinner";
+import missingImage from "../img/missingImage.png";
 
 const FilmPage = () => {
 
@@ -26,7 +27,7 @@ const FilmPage = () => {
     return (
         <div className='container'>
             <div className="movie-page pt-4">
-                <img src={filmById?.poster.url} alt={filmById?.name} className="movie-poster"/>
+                <img src={filmById?.poster.url ? filmById.poster.url : missingImage} alt={filmById?.name} className="movie-poster"/>
                 <div className="movie-details">
                     <h1>{filmById?.name}</h1>
                     <p className='d-flex'>

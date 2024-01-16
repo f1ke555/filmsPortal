@@ -18,7 +18,6 @@ const AppHeader = () => {
     return (
         <div className='header container'>
             <NavLink to='/'>Главная</NavLink>
-            <NavLink to='/search'>Поиск</NavLink>
             <NavLink to='/favorites'>Избранное</NavLink>
             <NavLink to='/history'>История поиска</NavLink>
             {currentUser
