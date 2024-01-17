@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {checkCurrentUser, logOut} from "../store/reducers/UserSlice";
 
@@ -7,6 +7,7 @@ import {checkCurrentUser, logOut} from "../store/reducers/UserSlice";
 const AppHeader = () => {
     const dispatch = useAppDispatch()
     const {currentUser} = useAppSelector(state => state.userReducer)
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(checkCurrentUser())
@@ -14,11 +15,11 @@ const AppHeader = () => {
 
     const handleLogOut = () => {
         dispatch(logOut())
+        navigate('/')
     }
     return (
         <div className='header container'>
             <NavLink to='/'>Главная</NavLink>
-            <NavLink to='/search'>Поиск</NavLink>
             <NavLink to='/favorites'>Избранное</NavLink>
             <NavLink to='/history'>История поиска</NavLink>
             {currentUser

@@ -3,7 +3,7 @@ import React from 'react';
 const ErrorPage = () => {
     return (
         <div>
-            Страница Ошибки
+            <h1>Вы перешли по несуществующему URL</h1>
         </div>
     );
 };

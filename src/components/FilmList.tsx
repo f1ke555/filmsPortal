@@ -7,8 +7,9 @@ interface FilmListProps {
 }
 
 const FilmList: FC<FilmListProps> = ({films}) => {
+
     return (
-        <div className='row row-cols-3 gap-4'>
+        <div style={{gap: 40}} className='row pt-4'>
             {films?.map((film) => (
                 <ItemFilm key={film.id} film={film}/>
             ))}

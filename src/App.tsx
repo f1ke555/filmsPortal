@@ -26,7 +26,7 @@ function App() {
                     <Route path='/history'
                            element={!currentUser ? <Navigate to='/signup' replace/> : <HistorySearchPage/>}/>
                     <Route path='/search' element={<SearchPage/>}/>
-                    <Route path='/signin' element={<SignInPage/>}/>
+                    <Route path='/signin' element={currentUser ? <Navigate to='/' replace/> : <SignInPage/>}/>
                     <Route path='/signup' element={<SingUpPage/>}/>
                     <Route path="*" element={<ErrorPage/>}/>
                     <Route path='/film/:id' element={<FilmPage/>}/>

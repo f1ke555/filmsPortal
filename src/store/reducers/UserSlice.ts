@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IUser} from "../../models/IUser";
 import {IFilm} from "../../models/IFilm";
+import {IFilters} from "../../models/IFilters";
 
 interface UserState {
     users: IUser[];
@@ -22,7 +23,7 @@ const userSlice = createSlice({
     reducers: {
         addNewUser: (state, action: PayloadAction<IUser>) => {
             if (localStorage.getItem(action.payload.email)) {
-                console.log('Пользователь с таким email уже существует');
+                alert('Пользователь с таким email уже существует')
             } else {
                 localStorage.setItem(action.payload.email, JSON.stringify(action.payload));
                 state.users.push(action.payload);
@@ -38,10 +39,10 @@ const userSlice = createSlice({
                     localStorage.setItem('currentUser', storedUserJSON);
                     state.currentUser = storedUser;
                 } else {
-                    state.errorPassword = true
+                    alert('Вы ввели неверный пароль')
                 }
             } else {
-                state.errorEmail = true
+                alert('Вы ввели несуществующий email')
             }
         },
         logOut: (state) => {
@@ -63,6 +64,17 @@ const userSlice = createSlice({
             }
             localStorage.setItem(currentUser.email, JSON.stringify(currentUser))
             localStorage.setItem('currentUser', JSON.stringify(currentUser))
+        },
+        addHistorySearch: (state, action: PayloadAction<IFilters>) => {
+            // @ts-ignore
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+            if (currentUser) {
+                currentUser.historySearch.push(action.payload)
+                localStorage.setItem(currentUser.email, JSON.stringify(currentUser))
+                localStorage.setItem('currentUser', JSON.stringify(currentUser))
+            } else {
+                alert('Для того, чтобы отображалась история поиска по фильтрам, нужно зарегистироваться.')
+            }
         }
     },
 });
@@ -75,5 +87,6 @@ export const { addNewUser,
     logOut,
     checkCurrentUser,
     addFavoriteFilm,
+    addHistorySearch,
     } = actions;
 export default userSlice.reducer;

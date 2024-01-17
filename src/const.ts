@@ -1,4 +1,5 @@
 import {IFilm} from "./models/IFilm";
+import {IFilters} from "./models/IFilters";
 
 export interface Values {
     firstName: string,
@@ -6,6 +7,7 @@ export interface Values {
     email: string,
     password: string,
     favoriteFilms: IFilm[],
+    historySearch: IFilters[],
 }
 
 export const initialFormikValues = {
@@ -13,5 +15,6 @@ export const initialFormikValues = {
     lastName: '',
     email: '',
     password: '',
-    favoriteFilms: []
+    favoriteFilms: [],
+    historySearch: [],
 }

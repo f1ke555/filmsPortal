@@ -6,14 +6,14 @@ interface FilmState {
     films: IFilm[];
     isLoading: boolean;
     error: string;
-    filmById: IFilm | null
+    filmById: IFilm | null;
 }
 
 const initialState: FilmState = {
     films: [],
     isLoading: false,
     error: '',
-    filmById: null
+    filmById: null,
 }
 
 const filmSlice = createSlice({
@@ -46,7 +46,7 @@ const filmSlice = createSlice({
                 state.isLoading = false;
                 // @ts-ignore
                 state.error = action.payload;
-            });
+            })
     },
 });
 
