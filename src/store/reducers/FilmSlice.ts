@@ -1,5 +1,5 @@
 import {IFilm} from "../../models/IFilm";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {fetchFilmById, fetchFilms} from "./ActionCreators";
 
 interface FilmState {

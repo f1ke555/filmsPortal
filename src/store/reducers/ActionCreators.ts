@@ -8,7 +8,7 @@ const apiKey5 = 'SJ3J51J-1Z5MQAM-JC4NSWY-MNY7E83'
 
 const options = {
     method: 'GET',
-    headers: {accept: 'application/json', 'X-API-KEY': `${apiKey2}`}
+    headers: {accept: 'application/json', 'X-API-KEY': `${apiKey1}`}
 };
 export const fetchFilms = createAsyncThunk(
     'films/fetchAll',
@@ -110,7 +110,7 @@ export const fetchFilmsByFilters = createAsyncThunk(
                 const movieData = await response.json();
                 return movieData.docs
             }
-
+        console.log(response)
         } catch (e) {
             // @ts-ignore
             return thunkAPI.rejectWithValue(e.message);

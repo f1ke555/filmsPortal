@@ -68,9 +68,13 @@ const userSlice = createSlice({
         addHistorySearch: (state, action: PayloadAction<IFilters>) => {
             // @ts-ignore
             const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-            currentUser.historySearch.push(action.payload)
-            localStorage.setItem(currentUser.email, JSON.stringify(currentUser))
-            localStorage.setItem('currentUser', JSON.stringify(currentUser))
+            if (currentUser) {
+                currentUser.historySearch.push(action.payload)
+                localStorage.setItem(currentUser.email, JSON.stringify(currentUser))
+                localStorage.setItem('currentUser', JSON.stringify(currentUser))
+            } else {
+                alert('Для того, чтобы отображалась история поиска по фильтрам, нужно зарегистироваться.')
+            }
         }
     },
 });

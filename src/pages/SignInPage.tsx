@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {Field, Form, Formik} from "formik";
-import {useNavigate} from "react-router-dom";
 import {initialFormikValues, Values} from "../const";
 import {logInUser} from "../store/reducers/UserSlice";
 import show from '../img/showPassword.png'
@@ -11,7 +10,7 @@ import hide from '../img/hidePassword.png'
 const SignInPage = () => {
     const dispatch = useAppDispatch()
     const [showPassword, setShowPassword] = useState(false)
-    const {errorPassword, errorEmail, currentUser} = useAppSelector(state => state.userReducer)
+    const {errorPassword, errorEmail} = useAppSelector(state => state.userReducer)
     const handleSubmit = (values: Values): void => {
         dispatch(logInUser(values))
     }
@@ -33,11 +32,17 @@ const SignInPage = () => {
                         />
                         {errorEmail && <h5>Вы ввели несуществующую почту</h5>}
                         <div className='position-relative'>
-                            <Field id="password" type={showPassword ? 'text' : 'password'} name="password"
-                                   placeholder='Введите пароль'/>
-                            <img style={{top: 14, left: 230, cursor: "pointer"}} className='position-absolute'
-                                 width={25} height={25} onClick={() => setShowPassword(!showPassword)}
-                                 src={showPassword ? show : hide}/>
+                            <Field
+                                id="password"
+                                type={showPassword ? 'text' : 'password'}
+                                name="password"
+                                placeholder='Введите пароль'/>
+                            <img
+                                alt='showPassword'
+                                style={{top: 14, left: 230, cursor: "pointer"}}
+                                className='position-absolute'
+                                width={25} height={25} onClick={() => setShowPassword(!showPassword)}
+                                src={showPassword ? hide : show}/>
                         </div>
                         {errorPassword && <h5>Вы ввели неверный пароль</h5>}
                         <button type="submit">Авторизоваться</button>

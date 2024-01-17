@@ -6,13 +6,14 @@ const HistorySearchPage = () => {
     const {currentUser} = useAppSelector(state => state.userReducer)
     const dispatch = useAppDispatch()
 
+
     useEffect(() => {
         dispatch(checkCurrentUser())
     }, []);
 
     return (
         <div className='container pt-4'>
-            <h1>История поиска</h1>
+            <h1>История поиска </h1>
             {!currentUser?.historySearch.length && <h1>Вы не добавили фильмы в избранное</h1>}
             <div className='gap-4'>
                 {currentUser?.historySearch.map((filters, index) => (

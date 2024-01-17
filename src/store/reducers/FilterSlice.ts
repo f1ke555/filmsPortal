@@ -8,7 +8,11 @@ interface FilterState {
     filteredFilms: IFilm[];
     isLoadingFilters: boolean;
     error: string;
-    filters: [[], [], []];
+    filters: [
+        genres: [],
+        status: [],
+        types: [],
+    ];
     searchValue: string;
     current: IFilters | null
 }
@@ -18,7 +22,11 @@ const initialState: FilterState = {
     isLoadingFilters: false,
     error: '',
     searchValue: '',
-    filters: [[], [], []],
+    filters: [
+        [],
+        [],
+        [],
+    ],
     current: {
         genre: {name: 'Не указано'},
         status: {name: 'Не указано'},

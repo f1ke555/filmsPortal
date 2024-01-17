@@ -6,8 +6,7 @@ import {
     resetFilters,
     setSearchValue
 } from "../store/reducers/FilterSlice";
-import {fetchFilmByName, fetchFilms, fetchFilmsByFilters} from "../store/reducers/ActionCreators";
-import iconSearch from "../img/search.png";
+import {fetchFilmByName, fetchFilmsByFilters} from "../store/reducers/ActionCreators";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {addHistorySearch} from "../store/reducers/UserSlice";
 import {useNavigate} from "react-router-dom";
@@ -19,48 +18,55 @@ const Filters = () => {
     const {filters, current, searchValue, isLoadingFilters } = useAppSelector((state) => state.filmFilterReducer);
 
     const handleChangeFilterByGenre = (e) => {
-        dispatch(addFilterGenre(e.target.value))
+        dispatch(addFilterGenre(e.target.value));
     }
 
     const handleChangeFilterByStatus = (e) => {
-        dispatch(addFilterStatus(e.target.value))
+        dispatch(addFilterStatus(e.target.value));
     }
 
     const handleChangeFilterByType = (e) => {
-        dispatch(addFilterType(e.target.value))
+        dispatch(addFilterType(e.target.value));
     }
 
     const handleClickFiltersFilm = () => {
         // @ts-ignore
-        dispatch(fetchFilmsByFilters(current))
+        dispatch(fetchFilmsByFilters(current));
         // @ts-ignore
-        dispatch(addHistorySearch(current))
-        navigate('/search')
+        dispatch(addHistorySearch(current));
+        navigate('/search');
     }
 
     const handleResetFilters = () => {
-        dispatch(resetFilters())
-        navigate('/')
-    }
+        dispatch(resetFilters());
+        navigate('/');
+    };
 
     const handleChangeSearch = (event) => {
         // @ts-ignore
-        const newValue = event.target.value
-        dispatch(setSearchValue(newValue))
-    }
+        const newValue = event.target.value;
+        dispatch(setSearchValue(newValue));
+    };
 
-    const handleClickSearch = () => {
-        dispatch(fetchFilmByName(searchValue))
-        navigate('/search')
+    const handleClickSearch = (event) => {
+        dispatch(fetchFilmByName(searchValue));
+        navigate('/search');
+    };
+
+    const handleEnterSearch = (event) => {
+        if (event.key === 'Enter') {
+            dispatch(fetchFilmByName(searchValue));
+            navigate('/search');
+        }
     }
 
     const handleClickResetSearch = () => {
-        dispatch(setSearchValue(''))
-        navigate('/')
-    }
+        dispatch(setSearchValue(''));
+        navigate('/');
+    };
 
     if (isLoadingFilters) {
-        return <Spinner/>
+        return <Spinner/>;
     }
 
     return (
@@ -68,6 +74,7 @@ const Filters = () => {
             <div className='row'>
                 <div className='col'>
                     <input
+                        onKeyDown={handleEnterSearch}
                         value={searchValue}
                         onChange={handleChangeSearch}
                         placeholder='Поиск'

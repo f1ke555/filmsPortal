@@ -4,6 +4,7 @@ import {fetchFilms, fetchFilters} from "../store/reducers/ActionCreators";
 import Spinner from "../components/Spinner";
 import FilmList from "../components/FilmList";
 import Filters from "../components/Filters";
+import {resetFilters} from "../store/reducers/FilterSlice";
 
 const MainPage = () => {
     const dispatch = useAppDispatch();
@@ -13,7 +14,7 @@ const MainPage = () => {
     useEffect(() => {
         dispatch(fetchFilters())
         dispatch(fetchFilms(limit))
-
+        dispatch(resetFilters())
         const handleScroll = () => {
             if (
                 window.innerHeight + document.documentElement.scrollTop ===
